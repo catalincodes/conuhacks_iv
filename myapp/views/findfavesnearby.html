@@ -117,28 +117,53 @@
     </thead>
     <tbody>
       <script>
-        document.write('<tr>');
+          document.write('<tr>');
           document.write('<td>'+<%- song[0].latitude %>+'</td>');
           document.write('<td>'+<%- song[0].longitude %>+'</td>');
           document.write('<td>'+<%- song[0].songId %>+'</td>');
-          document.write('<td>'+<%- song[3].state %>+'</td>');
+          document.write('<td>'+<%- song[0].artistId %>+'</td>');
+          document.write('</tr>');
+
+           document.write('<tr>');
+          document.write('<td>'+<%- song[1].latitude %>+'</td>');
+          document.write('<td>'+<%- song[1].longitude %>+'</td>');
+          document.write('<td>'+<%- song[1].songId %>+'</td>');
+          document.write('<td>'+<%- song[1].artistId %>+'</td>');
+          document.write('</tr>');
+
+          document.write('<tr>');
+          document.write('<td>'+<%- song[2].latitude %>+'</td>');
+          document.write('<td>'+<%- song[2].longitude %>+'</td>');
+          document.write('<td>'+<%- song[2].songId %>+'</td>');
+          document.write('<td>'+<%- song[2].artistId %>+'</td>');
+          document.write('</tr>');
+
+           document.write('<tr>');
+          document.write('<td>'+<%- song[3].latitude %>+'</td>');
+          document.write('<td>'+<%- song[3].longitude %>+'</td>');
+          document.write('<td>'+<%- song[3].songId %>+'</td>');
+          document.write('<td>'+<%- song[3].artistId %>+'</td>');
+          document.write('</tr>');
+
+           document.write('<tr>');
+          document.write('<td>'+<%- song[4].latitude %>+'</td>');
+          document.write('<td>'+<%- song[4].longitude %>+'</td>');
+          document.write('<td>'+<%- song[4].songId %>+'</td>');
+          document.write('<td>'+<%- song[4].artistId %>+'</td>');
+          document.write('</tr>');
+
+          document.write('<tr>');
+          document.write('<td>'+<%- song[5].latitude %>+'</td>');
+          document.write('<td>'+<%- song[5].longitude %>+'</td>');
+          document.write('<td>'+<%- song[5].songId %>+'</td>');
+          document.write('<td>'+<%- song[5].artistId %>+'</td>');
           document.write('</tr>');
 
       </script>
       <tr>
         <!--<td><%- JSON.stringify(song) %>;</td>-->
-        
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      
     </tbody>
   </table>
 </div>
