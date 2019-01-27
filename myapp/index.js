@@ -70,42 +70,7 @@ parse().then(function(val) {
 });
 
 
-passport.use(new SpotifyStrategy({
-  clientID: appKey,
-  clientSecret: appSecret,
-  callbackURL: 'http://localhost:8888/callback'
-},
-function(accessToken, refreshToken, profile, done){
-  process.nextTick(function () {
-    console.log('Profile: ', profile)
 
-    URLSearchParams.findOrCreate({
-      where: {
-        SpotifyId: profile.id
-      },
-      defaults: {
-        name: profile.displayName,
-        SpotifyId: profile.id,
-        accessToken: accessToken,
-        proPic: profile.photo[0],
-        refreshToken: refreshToken
-      }
-    })
-    .spread(function (user) {
-      console.log('MAKING USER:', user)
-      done(null, user);
-    }).catch(done);
-  });
-}));
-
-app.get('/login', function(req, res) {
-  var scopes = 'user-read-private user-read-email';
-  res.redirect('https://accounts.spotify.com/authorize' +
-    '?response_type=code' +
-    '&client_id=' + my_client_id +
-    (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-    '&redirect_uri=' + encodeURIComponent(redirect_uri));
-  });
 
 
 
