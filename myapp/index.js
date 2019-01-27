@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+const SpotifyStrategy = require('passport-spotify').Strategy;
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -69,56 +70,43 @@ parse().then(function(val) {
 });
 
 
-/*request({
-    headers: {
-      'client-secret': '9923ac9b-8fd3-421f-b0e5-952f807c6885'
-    },
-    uri: totalurl,
-    body: formData,
-    method: 'GET'
-  }, function (err, res, body) {
-		var json_arr = JSON.parse(res.body);
-	  	   //console.log(json_arr.plays.length);
-	  	   for(var i = 0; i < json_arr.plays.length; i++) {
-		    var obj = json_arr.plays[i].songId;
-		    songs.push(obj);
-		 
-			}
-		console.log(songs);
-		return songs;
+passport.use(new SpotifyStrategy({
+  clientID: appKey,
+  clientSecret: appSecret,
+  callbackURL: 'http://localhost:8888/callback'
+},
+function(accessToken, refreshToken, profile, done){
+  process.nextTick(function () {
+    console.log('Profile: ', profile)
 
-});*/
+    URLSearchParams.findOrCreate({
+      where: {
+        SpotifyId: profile.id
+      },
+      defaults: {
+        name: profile.displayName,
+        SpotifyId: profile.id,
+        accessToken: accessToken,
+        proPic: profile.photo[0],
+        refreshToken: refreshToken
+      }
+    })
+    .spread(function (user) {
+      console.log('MAKING USER:', user)
+      done(null, user);
+    }).catch(done);
+  });
+}));
 
+app.get('/login', function(req, res) {
+  var scopes = 'user-read-private user-read-email';
+  res.redirect('https://accounts.spotify.com/authorize' +
+    '?response_type=code' +
+    '&client_id=' + my_client_id +
+    (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+    '&redirect_uri=' + encodeURIComponent(redirect_uri));
+  });
 
-
-
-//console.log(songs);
-
-
-/*var formData = querystring.stringify(form);
-var contentLength = formData.length;
-var songs = [];
-
-request({
-    headers: {
-      'client-secret': '9923ac9b-8fd3-421f-b0e5-952f807c6885'
-    },
-    uri: totalurl,
-    body: formData,
-    method: 'GET'
-  }, function (err, res, body) {
-  	   var json_arr = JSON.parse(res.body);
-  	   //console.log(json_arr.plays.length);
-  	   for(var i = 0; i < json_arr.plays.length; i++) {
-	    var obj = json_arr.plays[i].songId;
-	    songs.push(obj);
-	   //console.log(obj);
-		}
-	console.log(songs[0]);
-
-  });*/
-
-//console.log(songs[0]);
 
 
 
