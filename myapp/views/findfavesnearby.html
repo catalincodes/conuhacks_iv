@@ -116,10 +116,18 @@
       </tr>
     </thead>
     <tbody>
+      <script>
+        document.write('<tr>');
+          document.write('<td>'+<%- song[0].latitude %>+'</td>');
+          document.write('<td>'+<%- song[0].longitude %>+'</td>');
+          document.write('<td>'+<%- song[0].songId %>+'</td>');
+          document.write('<td>'+<%- song[3].state %>+'</td>');
+          document.write('</tr>');
+
+      </script>
       <tr>
-        <td><%- JSON.stringify(lat) %>;</td>
-        <td><%- JSON.stringify(long) %>;</td>
-        <td><%- JSON.stringify(sate) %>;</td>
+        <!--<td><%- JSON.stringify(song) %>;</td>-->
+        
       </tr>
       <tr>
         <td>Mary</td>

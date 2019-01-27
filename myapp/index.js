@@ -25,17 +25,18 @@ app.get('/', (req, res) => {
 app.get('/findfavesnearby', async (req, res) => {
    
    parse().then(function(val) {
+   	console.log("HERE");
 	console.log(val.plays);
 	var counter=0;
 
 	var songlist = val;
-	/*for(var i = 0; i < val.plays.length; i++) {
+	for(var i = 0; i < val.plays.length; i++) {
 		song1 = "";
 		if(val.plays[i].artistId)
 			artists.push(val.plays[i].artistId); 
         song1 = song + val.plays[i].songId;
         songs.push(song1);
-	}*/
+	}
 
 
 	res.render('findfavesnearby',{"song": val.plays});
