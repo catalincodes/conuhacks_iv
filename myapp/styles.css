@@ -213,3 +213,12 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+
+/*.login-box {
+}*/
+
+.hatsy{
+  margin: auto;
+  width: 100px;
+  /*padding: 0px 10px;*/
+}
