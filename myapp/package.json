@@ -21,7 +21,8 @@
     "passport-local": "^1.0.0",
     "request": "^2.81.0",
     "superagent": "^3.5.2",
-    "x": "^0.1.2"
+    "x": "^0.1.2",
+    "xml-js": "^1.6.9"
   },
   "description": ""
 }

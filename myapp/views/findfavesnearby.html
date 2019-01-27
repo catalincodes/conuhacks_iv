@@ -62,6 +62,12 @@
     </style>
   </head>
   <body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
@@ -95,10 +101,39 @@
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
       </div>
-      <h1> 
-      <div style="text-align:center; margin-top: 50px; margin-left: 50px">WELCOME CATALIN 
-      </div>
-      </h1>
+      <div class="container" style="text-align:center; margin-left:275px;">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>State</th>
+        <th>Style</th>
+        <th>Artist</th>
+        <th>Song</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%- JSON.stringify(lat) %>;</td>
+        <td><%- JSON.stringify(long) %>;</td>
+        <td><%- JSON.stringify(sate) %>;</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
       <!--<main class="mdl-layout__content mdl-color--grey-100">
         <div class="login-box">
           <div style="text-align:center; margin-top: 20px"> Username </div>
