@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express();
+app.engine('html', require('ejs').renderFile);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  //res.send('Hello World!');
+  res.render('index.html');
 });
 
 app.listen(8000, () => {
