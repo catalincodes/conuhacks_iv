@@ -1,10 +1,14 @@
 const express = require('express')
 const app = express();
+var path = require('path')
 app.engine('html', require('ejs').renderFile);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
+app.set('view engine', 'html');
 
 app.get('/', (req, res) => {
-  //res.send('Hello World!');
-  res.render('index.html');
+   res.render('index');
+  //res.send('Hello World!')
 });
 
 app.listen(8000, () => {
