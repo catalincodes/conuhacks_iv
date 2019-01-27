@@ -6,6 +6,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname));
 app.set('view engine', 'html');
 
+
 app.get('/', (req, res) => {
    res.render('index');
   //res.send('Hello World!')

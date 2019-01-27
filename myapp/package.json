@@ -8,11 +8,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.15.6",
     "flash": "^1.1.0",
+    "mongoose": "^5.4.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "request": "^2.81.0",
-    "superagent": "^3.5.2"
+    "superagent": "^3.5.2",
+    "x": "^0.1.2"
   },
   "description": ""
 }
